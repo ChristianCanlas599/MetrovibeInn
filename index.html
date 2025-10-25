@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metrovibe Inn</title>
+  <title>Metrovibe Inn - Home</title>
   <link rel="stylesheet" href="index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,31 +46,25 @@
     </div>
     <video src="Media/cinematic.mp4" muted loop autoplay playsinline></video>
     <div class="overlay"></div>
-
-
     <div class="text">
       <h1>Metrovibe Inn</h1>
       <h2>Experience the Metro</h2>
       <h3>Live the Vibe</h3>
-      <a href="#about">Explore</a>
+      <a href="rooms.html">Book Now!</a>
     </div>
-
     <audio id="bg-music" src="Media/bg-music.mp3" loop></audio>
     <button id="music-toggle"><i class="fa-solid fa-volume-high"></i></button>
   </section>
-  
   <div class="menu" id="menu" aria-hidden="true">
     <button class="menu-close" aria-label="Close menu">&times;</button>
      <ul>
        <li><a href="#home"><i class="fas fas fa-home"></i>Home</a></li>
        <li><a href="#about"><i class="fas fas fa-info-circle"></i>About</a></li>
-       <li><a href="#destination"><i class="fas fas fa-map-marker-alt"></i>Destination</a></li>
-       <li><a href="#others"><i class="fas fas fa-layer-group"></i>Others</a></li>
-       <li><a href="#contact"><i class="fas fas fa-phone-alt"></i>Contact</a></li>
+       <li><a href="#destination"><i class="fas fas fa-map-marker-alt"></i>Location</a></li>
+       <li><a href="#footer"><i class="fas fas fa-layer-group"></i>Details</a></li>
      </ul>
    </div>    
   <section id="about">
-    <!-- background video for About -->
     <video class="section-video" src="Media/hotelbg1.mp4" muted loop autoplay playsinline></video>
     <div class="section-overlay"></div>
     <h2 class="section-title">About Us</h2>
@@ -81,7 +75,6 @@
    </div>
    </section>
   <div class="map-section" id="destination">
-     <!-- background video for Location -->
      <video class="section-video" src="Media/Nightdrive.mp4" muted loop autoplay playsinline></video>
      <div class="section-overlay"></div>
     <h2 class="section-title">Our Location</h2>
@@ -99,7 +92,7 @@
       </div>
     </div>
    </div>
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <div class="footer-top">
         </div>
        <div class="footer-content">
@@ -127,7 +120,6 @@
              <p>&copy; 2025 Metrovibe Inn. All rights reserved.</p>
          </div>
      </footer>
-
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="" crossorigin=""></script>
   <script src="index.js"></script>
 </body>

@@ -573,7 +573,7 @@ input[type="text"],input[type="date"],input[type="number"],select{width:100%;pad
         justify-content: space-between;
         align-items: flex-start;
         flex-wrap: nowrap;
-        gap: 24 px;
+        gap: 24px;
         width: 100%;
         box-sizing: border-box;
     }
@@ -1343,4 +1343,34 @@ input[type="text"],input[type="date"],input[type="number"],select{width:100%;pad
             min-width: 0;
         }
     }
+
+    /* Title row and circular back button for pages like rooms.html */
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px; /* keep spacing consistent with .page-title */
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #fff;
+  text-decoration: none;
+  transition: background .12s ease, transform .12s ease;
+  flex: 0 0 auto;
+}
+.back-btn svg { width: 18px; height: 18px; fill: currentColor; display:block; }
+.back-btn:hover { background: rgba(255,255,255,0.06); transform: translateY(-2px); }
+
+/* smaller screens: reduce button size slightly */
+@media (max-width: 700px) {
+  .back-btn { width:40px; height:40px; }
+  .title-row { gap: 10px; margin-bottom:6px; }
+}
 

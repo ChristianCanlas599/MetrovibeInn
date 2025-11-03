@@ -1,10 +1,8 @@
-
 const menuToggle = document.querySelector(".toggle");
 const menu = document.querySelector(".menu");
 const menuCheckbox = document.getElementById("menu-checkbox");
 const menuClose = document.querySelector(".menu-close");
 const hudToggle = document.getElementById("hud-toggle");
-
 
 function openMenu() {
   menu.classList.add("active");
@@ -24,12 +22,10 @@ function toggleMenu() {
   if (menu.classList.contains("active")) closeMenu(); else openMenu();
 }
 
-
 menuToggle.addEventListener("click", (e) => {
   e.stopPropagation();
   toggleMenu();
 });
-
 
 menuToggle.addEventListener("keydown", (e) => {
   if (e.key === "Enter" || e.key === " ") {
@@ -38,14 +34,12 @@ menuToggle.addEventListener("keydown", (e) => {
   }
 });
 
-
 if (menuClose) {
   menuClose.addEventListener("click", (e) => {
     e.stopPropagation();
     closeMenu();
   });
 }
-
 
 window.addEventListener("click", (e) => {
   if (menu.classList.contains("active")) {

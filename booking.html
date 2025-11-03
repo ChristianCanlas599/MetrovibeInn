@@ -1,9 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Metrovibe Inn - Booking</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Booking — Metrovibe Inn</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
+  <main class="page" aria-labelledby="booking-title">
+    <h1 id="booking-title" class="page-title">Booking</h1>
+
+    <noscript class="no-js">
+    </noscript>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <section id="booking-summary" class="booking-summary" aria-label="Booking summary">
+      <h2 class="section-title">Selected Room</h2>
+      <div id="selected-room" class="selected-room">
+        <div class="selected-room-preview">
+          <img id="selected-room-img" src="" alt="Selected room photo" style="display:none;border-radius:8px;max-width:50%;height:auto;">
+        </div>
+        <div id="selected-room-info" class="selected-room-info">
+          <p class="muted">Loading selected room...</p>
+        </div>
+      </div>
+
+      <p class="small">If you want a different room, <a href="rooms.html" id="change-selection">change selection</a>.</p>
+    </section>
+
+    <section class="booking-form" aria-label="Confirm booking">
+      <h2 class="section-title">Confirm Booking</h2>
+
+      <form id="booking-top-form" novalidate>
+        <div class="grid-2">
+          <label>
+            Your name
+            <input id="name" type="text" placeholder="Full name" required />
+          </label>
+          <label>
+            Check-in date
+            <input id="checkin" type="date" required />
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <label>
+            Quantity
+            <input id="qty" type="number" min="1" step="1" value="1" required />
+          </label>
+          <label>
+            Unit
+            <select id="unit">
+              <option value="days">Days</option>
+              <option value="weeks">Weeks</option>
+            </select>
+          </label>
+        </div>
+        <fieldset id="payment-methods" style="margin-top:14px;border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:8px;">
+          <legend style="color:var(--accent);font-weight:600">Payment</legend>
+          <label style="display:inline-flex;gap:8px;align-items:center;margin-right:12px;">
+            <input type="radio" name="payment" value="cash" id="pay-cash" checked> Cash (pay on counter)
+          </label>
+          <label style="display:inline-flex;gap:8px;align-items:center;">
+            <input type="radio" name="payment" value="card" id="pay-card"> Card
+          </label>
+
+          <div id="card-fields" class="card-fields" style="margin-top:12px;display:none;">
+            <div class="card-row">
+              <label class="card-col card-number">
+                <span class="label-text">Card number</span>
+                <input id="card-number" type="text" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456">
+              </label>
+              <label class="card-col card-name">
+                <span class="label-text">Name on card</span>
+                <input id="card-name" type="text" placeholder="Cardholder name">
+              </label>
+              <label class="card-col card-expiry">
+                <span class="label-text">Expiry (MM/YY)</span>
+                <input id="card-expiry" type="month" placeholder="YYYY-MM">
+              </label>
+              <label class="card-col card-cvv">
+                <span class="label-text">CVV</span>
+                <input id="card-cvv" type="text" maxlength="4" inputmode="numeric" placeholder="123">
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="calc">
+          <p>Rate per night: <strong id="rate-night">₱0</strong></p>
+          <p>Example costs: 1 night — <strong id="example-1">₱0</strong>, 3 nights — <strong id="example-3">₱0</strong>, 1 week — <strong id="example-7">₱0</strong></p>
+          <p>Total nights: <strong id="total-nights">0</strong></p>
+          <p>Total cost: <strong id="total-cost">₱0</strong></p>
+        </div>
+
+        <div class="form-actions">
+          <button id="confirm-book" class="btn proceed" type="submit">Confirm & Save</button>
+          <a href="rooms.html" class="btn secondary">Change selection</a>
+        </div>
+      </form>
+    </section>
+
+    <section class="reservations" aria-label="Saved reservations">
+      <h2 class="section-title">Reservations</h2>
+      <div id="reservations-wrap">
+        <table id="reservations-table" class="reservations-table" aria-live="polite">
+          <thead>
+            <tr><th>Room</th><th>Name</th><th>Check-in</th><th>Nights</th><th>Rate</th><th>Total</th><th>Action</th></tr>
+          </thead>
+          <tbody id="reservations-body"></tbody>
+        </table>
+        <p id="no-res" class="muted">No reservations yet.</p>
+        <div class="right"><button id="clear-all" class="btn secondary">Clear All</button></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="booking.js" defer></script>
 </body>
 </html>

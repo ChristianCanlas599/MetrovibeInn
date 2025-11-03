@@ -1,26 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Metrovibe Inn - Rooms</title>
-    <link href="rooms.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rooms — Metrovibe Inn</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
-<header>
-    <input id="menu-checkbox" type="checkbox" aria-label="Toggle menu" />
-    <div class="toggle" id="hud-toggle" role="button" aria-controls="menu" aria-expanded="false" tabindex="0">
-        <span class="top_line common"></span>
-        <span class="middle_line common"></span>
-        <span class="bottom_line common"></span>
-    </div>
-</header>
-<div class="menu" id="menu" aria-hidden="true">
-    <button class="menu-close" aria-label="Close menu">&times;</button>
-    <ul>
-        <li><a href="index.html"><i class="fas fas fa-home"></i>Home</a></li>
-        <li><a href="rooms.html"><i class="fas fas fa-layer-group"></i>Rooms</a></li>
-    </ul>
-</div>
 <body>
+  <main class="page" aria-labelledby="rooms-title">
+    <h1 id="rooms-title" class="page-title">Select a Room</h1>
 
+    <noscript class="no-js">
+      JavaScript is required for booking. Please enable JavaScript in your browser.
+    </noscript>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <section class="rooms" aria-label="Available rooms">
+      <p class="intro">Click a card to select a room. Use Enter or Space to select via keyboard.</p>
+
+      <div class="rooms-grid" id="rooms-grid">
+
+        <article class="room-card" role="button" tabindex="0"
+                 data-room-id="room-001" data-room-name="Standard" data-room-rate="2500"
+                 aria-pressed="false">
+          <div class="room-media" aria-hidden="true">
+            <img src="Media%20(Index)/standard.jpg" alt="">
+          </div>
+          <div class="room-info">
+            <h3 class="room-name">Standard</h3>
+            <p class="room-type">Comfortable queen bed</p>
+            <p class="room-rate">₱2,500 / night</p>
+          </div>
+          <span class="checkmark" aria-hidden="true"></span>
+        </article>
+
+        <article class="room-card" role="button" tabindex="0"
+                 data-room-id="room-002" data-room-name="Deluxe" data-room-rate="4200"
+                 aria-pressed="false">
+          <div class="room-media" aria-hidden="true"><img src="Media%20(Index)/deluxe.jpg" alt=""></div>
+          <div class="room-info">
+            <h3 class="room-name">Deluxe</h3>
+            <p class="room-type">City view, larger layout</p>
+            <p class="room-rate">₱4,200 / night</p>
+          </div>
+          <span class="checkmark" aria-hidden="true"></span>
+        </article>
+
+        <article class="room-card" role="button" tabindex="0"
+                 data-room-id="room-003" data-room-name="Family" data-room-rate="3500"
+                 aria-pressed="false">
+          <div class="room-media" aria-hidden="true"><img src="Media%20(Index)/family.jpg" alt=""></div>
+          <div class="room-info">
+            <h3 class="room-name">Family</h3>
+            <p class="room-type">Two beds, ample space</p>
+            <p class="room-rate">₱3,500 / night</p>
+          </div>
+          <span class="checkmark" aria-hidden="true"></span>
+        </article>
+
+        <article class="room-card" role="button" tabindex="0"
+                 data-room-id="room-004" data-room-name="Suite" data-room-rate="8500"
+                 aria-pressed="false">
+          <div class="room-media" aria-hidden="true"><img src="Media%20(Index)/suite.jpg" alt=""></div>
+          <div class="room-info">
+            <h3 class="room-name">Suite</h3>
+            <p class="room-type">Premium amenities, living area</p>
+            <p class="room-rate">₱8,500 / night</p>
+          </div>
+          <span class="checkmark" aria-hidden="true"></span>
+        </article>
+
+        <article class="room-card" role="button" tabindex="0"
+                 data-room-id="room-005" data-room-name="Twin" data-room-rate="2800"
+                 aria-pressed="false">
+          <div class="room-media" aria-hidden="true"><img src="Media%20(Index)/twin.jpg" alt=""></div>
+          <div class="room-info">
+            <h3 class="room-name">Twin</h3>
+            <p class="room-type">Two single beds</p>
+            <p class="room-rate">₱2,800 / night</p>
+          </div>
+          <span class="checkmark" aria-hidden="true"></span>
+        </article>
+
+        <article class="room-card" role="button" tabindex="0"
+                 data-room-id="room-006" data-room-name="Executive" data-room-rate="6200"
+                 aria-pressed="false">
+          <div class="room-media" aria-hidden="true"><img src="Media%20(Index)/executive.jpg" alt=""></div>
+          <div class="room-info">
+            <h3 class="room-name">Executive</h3>
+            <p class="room-type">Work desk & premium service</p>
+            <p class="room-rate">₱6,200 / night</p>
+          </div>
+          <span class="checkmark" aria-hidden="true"></span>
+        </article>
+      </div>
+
+      <div class="actions">
+        <button id="proceed-btn" class="btn proceed" disabled aria-disabled="true">Proceed to Booking</button>
+        <a href="booking.html" class="btn secondary" id="change-guest" style="display:none;">Open Booking</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="rooms.js" defer></script>
 </body>
 </html>
